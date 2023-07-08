@@ -5,8 +5,8 @@
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
-  color: black;
-  background-color: white;
+  color: white;
+  
 }
 
 nav {
@@ -38,9 +38,32 @@ nav a[aria-current='page'] {
 
 main {
   padding: 1rem;
+  background-image: url("background.webp");
+  background-size: cover;
+  height: 150vh;
+  opacity: 0.8;
 }
+
 
 h1 {
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+.image-container{
+  width: 4rem;
+  background-color: transparent;
+  border-radius: 30px;
+}
+
+.designed-by-authour{
+  font-size: 12px;
+  font-family: cursive;
+}
+.header-dispaly{
+  display:flex;
+  flex-direction:column;
+}
+.aTag{
+  color: blue;
 }

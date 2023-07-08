@@ -1,23 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Question 1</title>
+</head>
+
+<body>
+  <main>
+    <header class="header-dispaly">
+      <div>
+        <img src="logo.jpg" class="image-container" alt="">
+        <div>
+          <h1>
+            Understanding the fundamentals of state in Javascript
+          </h1>
+          <p class="designed-by-authour">
+            Designed by Jeevika Khandelwal
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="introduction">
+      <p>
+        <a href="#" class="aTag" id="chapter3">Chapter 3</a> from the book; Vumbula React — Co-authored by John Kagga
+      </p>
+    </div>
+
+    <div id="content-1" style="display: none;" class="section-1">
+      <h2>
+        <a href="#" class="aTag">What is State?</a>
+      </h2>
+      <p>
+        State is a JavaScript object that stores a component’s dynamic data and determines the component’s behaviour.
+        Because state is dynamic, it enables a component to keep track of changing information in between renders and for
+        it to be dynamic and interactive.
+      </p>
+      <p>
+        State is similar to props but unlike props, it is private to a component and is controlled solely by the said
+        component. In the examples from previous chapters, the behaviour of components has primarily depended on the
+        props that are passed down to them. In those cases, the components that receive the props have no control over
+        them because props are read-only.
+      </p>
+    </div>
+
+    <div class="view-more">
+      <a href="#" class="aTag" id="viewMore">View more</a>
+    </div>
+
+    <div id="content-2" style="display: none;" class="section-2">
+      <h2>
+        <a href="#" class="aTag">Adding State to a Class Component</a>
+      </h2>
+      <pre>
+        class Greeting extends React.Component {
+            render(){
+              return &lt;h1&gt;I’m a component in need of some state! &lt;/h1&gt;;
+            }
+          }
+      </pre>
+      <p>
+        <a href="#" class="aTag">Adding state to the Greeting component above involves defining within the class
+          component, a constructor function that assigns the initial state using this.state.</a>
+      </p>
+      <pre>
+        class Greeting extends React.Component {
+            constructor(props) {
+             super(props);
+               // Define your state object here
+               this.state = {
+                 name: ‘Jane Doe’
+               }
+             }
+             render(){
+               return &lt;h1&gt;Hello { this.state.name }&lt;/h1&gt;;
+             }
+          }
+      </pre>
+    </div>
+
+
+    <div id="content-3" style="display: none;" class="third-section">
+      <h2>
+        <a href="#" class="aTag">Investigating State using React Dev Tools</a>
+      </h2>
+      <p>
+        The devtools are available for download on both Mozilla Firefox Add-ons and the Chrome Web Store. Follow the
+        appropriate link to install the devtools depending on which browser you have installed on your computer.
+      </p>
+      <p>
+        Throughout the rest of this book, Chrome will be used as the browser of choice. In order to confirm successful
+        installation of the devtools on Chrome, open the developer tools window using Cmd+Opt+I on a Mac or Ctrl+Alt+I
+        on a windows PC. You should now see a React tab.
+      </p>
+    </div>
+
+    <script>
+     // Get references to the anchor tags and the content divs
+const chapter3Link = document.getElementById('chapter3');
+const viewMoreLink = document.getElementById('viewMore');
+const content1 = document.getElementById('content-1');
+const content2 = document.getElementById('content-2');
+const content3 = document.getElementById('content-3');
+
+// Hide the "View more" link initially
+viewMoreLink.style.display = 'none';
+
+// Add a click event listener to the chapter 3 link
+chapter3Link.addEventListener('click', function (event) {
+  event.preventDefault(); // Prevent the default behavior of the link
+  content1.style.display = 'block';
+  viewMoreLink.style.display = 'inline'; // Show the "View more" link after clicking on "Chapter 3"
+});
+
+// Add a click event listener to the view more link
+viewMoreLink.addEventListener('click', function (event) {
+  event.preventDefault(); // Prevent the default behavior of the link
+
+  // Toggle the visibility of the content divs
+  if (content2.style.display === 'none') {
+    content2.style.display = 'block';
+  } else if (content3.style.display === 'none') {
+    content3.style.display = 'block';
+    viewMoreLink.style.display = 'none'; // Hide the view more link after revealing all content
+  }
+});
+
+    </script>
+  </main>
+</body>
+
 </html>
